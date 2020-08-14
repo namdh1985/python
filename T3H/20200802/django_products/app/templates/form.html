@@ -1,0 +1,28 @@
+<!--app/templates/form.html-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<div class="container pt-3">
+    <h3>Thêm mới sản phẩm</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class="table">
+            <tr>
+                <td>Mã: </td>
+                <td><input class='form-control' name='code'> </td>
+            </tr>
+            <tr>
+                <td>Tên: </td>
+                <td><input class='form-control' name='name'> </td>
+            </tr>
+            <tr>
+                <td>Giá: </td>
+                <td><input class='form-control' name='price'> </td>
+            </tr>
+            <tr>
+                <td>Ảnh: </td>
+                <td><input class='form-control-file' type='file' name="img"></td>
+            </tr>
+        </table>
+        <button class="btn btn-primary" type="submit">Lưu lại</button>
+        <a href="/" class="btn btn-secondary">Quay lại</a>
+    </form>    
+</div>

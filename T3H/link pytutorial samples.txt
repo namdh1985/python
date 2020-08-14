@@ -1,0 +1,13 @@
+https://jsonbeautifier.org/
+
+https://github.com/pytutorial/samples
+
+https://www.openshift.com/ # tạo server free tại
+
+https://pytutorial.github.io/ML_tutorial/
+
+https://github.com/pytutorial/samples/tree/master/deep_learning
+
+https://github.com/pytutorial/samples/tree/master/flask
+
+https://getbootstrap.com/

@@ -1,0 +1,9 @@
+<!--app/templates/category_form.html-->
+<h3>Thêm nhóm sản phẩm</h3>
+<form method="POST">
+  {%csrf_token%}
+  <table>{{form}}</table>
+  <button type="submit">
+    Lưu lại
+  </button>
+</form>

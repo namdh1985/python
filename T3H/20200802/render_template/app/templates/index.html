@@ -1,0 +1,33 @@
+<!--app/templates/index.html-->
+<!--
+<ul>
+    {% for p in productList %}
+        <li>{{p.name}}</li>
+    {% endfor %}
+</ul>
+-->
+<table border="1" style="width:100%">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá sản phẩm</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in productList %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ p.code }}</td>
+                <td>{{ p.name }}</td>
+                <td>{{ p.price }}</td>
+            </tr>
+        {% endfor %}
+        {% if not productList %}
+            <tr>
+                <td colspan="4">Không có dữ liệu</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>

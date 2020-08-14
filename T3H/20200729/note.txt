@@ -1,0 +1,78 @@
+-django:
+ + full web framework: 
+ + Ưu điểm:
+  . Tốc độ phát triển nhanh: có sẵn site admin + form tự sinh
+  . Nhiều plug-in & thư viện đi kèm
+  . Bảo mật cao:
+ + Nhược điểm:
+  . Khó customize 
+  
+- FE / BE
+
+pip install django
+
+- Dùng tool để tạo project: django-admin
+
+django-admin startproject <ten_project>
+django-admin startproject firstapp
+
+python manage.py runserver => http://127.0.0.1:8000/
+
+Chỉnh sửa file settings.py => (os.path.join(BASE_DIR, 'templates)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+	............
+	}
+]
+
+-------------------
+
+#firstapp/views.apy
+from django.shortcuts import HttpResponse, render
+ 
+ 
+def index(request):
+   return render(request, 'index.html')
+ 
+#127.0.0.1:8000/hello
+def hello(request):
+    name = request.GET.get('name', '')
+    salutation = ''
+    gender = request.GET.get('gender')
+    if gender == 'M' : salutation = "Mr"
+    if gender == 'F': salutation = "Ms"
+    return render(request, 'hello.html')
+ 
+ 
+
+------------------------------------------------------
+
+#fristapp/urls.py
+from django.contrib import admin
+from django.urls import path
+from .views import *
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', index),    
+    path('hello', hello),
+]
+------------------------------------------------------
+ 
+<!--templates/hello.html-->
+Hello <i>{{salutation}}</i> {{name}}
+
+------------------------------------------------------
+<!--templates/index.html-->
+<form action="/hello">
+  <p>Name: <input name="name"></p>
+  <p>
+    Gender: 
+    <select name="gender">  
+      <option value="M">Male</option>    
+      <option value="F">Female</option>
+    </select>
+  </p>
+  <button type="submit">Send</button>
+</form>

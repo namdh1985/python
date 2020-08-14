@@ -1,0 +1,53 @@
+<!--
+<div id="message_panel"></div>
+<button onclick="getMessage()">Get Message</button>
+
+<script>
+    async function getMessage() {
+        var resp = await fetch('/hello');
+        var result = await resp.json();
+        //alert(result.message);
+        var panel = document.getElementById('message_panel');
+        panel.innerHTML = result.message;
+    }
+</script>-->
+
+<input id='keyword'>
+<button onclick="searchProduct()">Search</button>
+<div id='product_panel'></div>
+
+<script>
+    async function searchProduct() {
+        var keyword = document.getElementById('keyword').value;
+        var url = '/search_product?keyword=' + keyword;
+        var resp = await fetch(url);
+        var result = await resp.json();
+        //console.log(result);
+        /*var html = `<ul>` 
+                    + result.map(p => 
+                            `<li>${p.name}</li>`).join('')
+                    + `</ul>`;*/
+        var html = `<table border='1' style='width:100%'>
+                        <thead>
+                            <tr>
+                                <th style='width:5%'>#</th>
+                                <th style='width:30%'>Mã</th>
+                                <th style='width:35%'>Tên</th>
+                                <th style='width:30%'>Giá</th>
+                            </tr>
+                        </thead>
+                        <tbody>` + 
+                        result.map((p,i) => (
+                                `<tr>
+                                    <td>${i+1}</th>
+                                    <th>${p.code}</th>
+                                    <th>${p.name}</th>
+                                    <th>${p.price}</th>
+                                </tr>`
+                            )
+                        ).join('') +                            
+                        `</tbody>
+                    </table>`;
+        document.getElementById('product_panel').innerHTML = html;
+    }
+</script>

@@ -1,0 +1,6 @@
+<!--app/templates/product_form.html-->
+<form method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    <table>{{form}}</table>
+    <button type="submit">Lưu lại</button>
+</form>

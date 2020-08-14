@@ -1,0 +1,22 @@
+django-admin startproject multi_apps
+
+python manager.py startapp app1
+
+python manage.py runserver
+
+#TODO: Tao app 2, tao 2 route
+/app2/hello3
+/app3/hello4
+
+- B1: 
+	python manager.py startapp app2
+- B2: 
+	Tao moi file app2/urls.py
+- B3:
+	Include "app2.urls" vao trong urls.py cua project
+- B4:
+	Tao ham xu ly trong app2/views.py
+- B5:
+	Tao thu muc templates trong app2,
+	Tao cac file html cho cac trang xu ly
+	Dung ham render trong views.py de hien thi cac file html trong templates

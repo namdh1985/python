@@ -1,0 +1,31 @@
+<table border="1" style="width:100%">
+    <thead>
+        <tr>
+            <th style="width:5%">#</th>
+            <th style="width:15%">Nhóm</th>
+            <th style="width:12%">Mã</th>
+            <th style="width:15%">Tên</th>
+            <th style="width:12%">Giá</th>
+            <th style="width:26%">Ảnh</th>
+            <th style="width:15%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for p in productList%}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{p.category.name}}</td>
+                <td>{{p.code}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.price}}</td>
+                <td>
+                    <img src='/{{p.image}}' style="max-height:200px;">
+                </td>
+                <td></td>
+            </tr>
+        {%endfor%}
+    </tbody>
+</table>
+<a href="{% url 'create-product' %}">
+    Thêm sản phẩm
+</a>

@@ -1,0 +1,16 @@
+<h3>Thêm mới sản phẩm</h3>
+<form method="POST"> {%csrf_token%}
+    <p>
+        Nhóm sản phẩm:
+        <select name='category_id'>
+            <option value="">----Chọn nhóm sản phẩm----</option>
+        {%for c in categoryList%}
+            <option value="{{c.id}}">{{c.name}}</option>
+        {%endfor%}
+        </select>
+    </p>
+    <p>Mã:<input name='code'></p>
+    <p>Tên:<input name='name'></p>
+    <p>Giá:<input name='price'></p>
+    <button type="submit">Lưu lại</button>
+</form>

@@ -1,0 +1,8 @@
+<!--app/templates/index.html-->
+<form method="POST">
+    {%csrf_token%}
+    <p>Mã: <input name="code"></p>
+    <p>Tên: <input name="name"></p>
+    <p>Giá: <input name="price"></p>
+    <button type="submit">Lưu</button>
+</form>

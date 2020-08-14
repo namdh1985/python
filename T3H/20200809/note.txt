@@ -1,0 +1,21 @@
+- Phát triển nhanh
+- Bảo mật
+
+--> 
+	+ DJ Form --> 
+		auto generate html
+		auto validate
+		auto serialize/deserialize
+	
+	+ User (Admin site)
+		Login
+		Permission
+		
+	+ Extend template
+	
+	+ Search & Paging
+	
+------------------------------
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser

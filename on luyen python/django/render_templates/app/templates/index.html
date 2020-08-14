@@ -1,0 +1,38 @@
+<!--<table border="1" style="width:100%">
+    {%csrf_token%}
+    <thead>
+        <tr>
+            <th style="width:5%">#</th>
+            <th style="width:20%">Mã</th>
+            <th style="width:30%">Tên</th>
+            <th style="width:30%">Giá</th>
+            <th style="width:15%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for p in productList%}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{p.code}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td></td>
+        </tr>
+        {%endfor%}
+        {%if not productList%}
+        <tr>
+            <td colspan="5">Không có dữ liệu</td>
+        </tr>
+        {%endif%}
+    </tbody>
+</table>-->
+
+<!---------------------------------------------->
+
+<form method="POST">
+    {%csrf_token%}
+    <p>Mã: <input name='code'></p>
+    <p>Tên: <input name='name'></p>
+    <p>Giá: <input name='price'></p>
+    <button type="submit">Save</button>
+</form>

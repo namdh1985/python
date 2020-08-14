@@ -1,0 +1,32 @@
+<table border="1" style="width:100%">
+    <thead>
+        <th style="width:5%">#</th>
+        <th style="width:40%">Mã</th>
+        <th style="width:40%">Tên</th>
+        <th style="width:15%"></th>
+    </thead>
+    <tbody>
+        {% for c in categoryList %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{c.code}}</td>
+                <td>{{c.name}}</td>
+                <td>
+                    <a href="javascript:deleteCategory({{c.id}})">Xóa</a>
+                    <a href="{% url 'update-category' c.id %}">Chỉnh sửa</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'create-category' %}">
+    Thêm nhóm sản phẩm
+</a>
+
+<script>
+    function deleteCategory(id) {
+        if(confirm('Bạn có muốn xóa?')) {
+            location.href = '/delete_category/' + id;
+        }
+    }
+</script>

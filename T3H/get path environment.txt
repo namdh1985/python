@@ -1,0 +1,13 @@
+import sys
+for p in sys.path: print(p)
+
+C:\Python\Python38\Lib\idlelib
+C:\Python\Python38\python38.zip
+C:\Python\Python38\DLLs
+C:\Python\Python38\lib
+C:\Python\Python38
+C:\Python\Python38\lib\site-packages
+
+add environment
+C:\Python\Python38
+C:\Python\Python38\scripts
