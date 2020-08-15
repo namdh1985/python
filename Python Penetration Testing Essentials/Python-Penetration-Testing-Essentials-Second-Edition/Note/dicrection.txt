@@ -1,0 +1,6 @@
+gained: đạt được
+knowledge: hiểu biết
+aim: mục đích
+gather: tụ họp, thu thập
+offer: tặng, cung cấp, biếu
+form = pattern: loại, mẫu

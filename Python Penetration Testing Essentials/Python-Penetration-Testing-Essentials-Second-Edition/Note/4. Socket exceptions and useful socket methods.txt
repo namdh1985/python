@@ -1,0 +1,109 @@
+4. Socket exceptions: (Socket ngoại lệ)
+
+- exception socket.herror: This block catches (bắt) the address-related 
+(liên quan đến địa chỉ) error.
+
+- exception socket.timeout: This block catches the exception when a
+timeout (thời gian chờ) on a socket occurs (xảy ra), which has been 
+enabled (đã được kích hoạt) by settimeout(). In the previous example 
+you can see that we used socket.timeout.
+
+- exception socket.gaierror: This block catches any exception that is
+raised (được tạo ra) due to getaddrinfo() and getnameinfo().
+
+- exception socket.error: This block catches any socket-related errors.
+If you are not sure about any exception, you could use this. In other words 
+(nói cách khác), you can say that it is a generic block and can catch any 
+type of exception.
+
+-------------------------
+
+5. Useful socket methods: (Các phương thức socket hữu ích)
+
+- socket.gethostbyname(hostname): This method converts a hostname to
+the IPv4 address format. The IPv4 address is returned in the form of a string.
+>>> socket.gethostbyname('thapar.edu')
+'220.227.15.55'
+
+- socket.gethostbyname_ex(name): This method converts a hostname to
+the IPv4 address pattern. However, the advantage over (ưu điểm so với) the 
+previous method is that it gives all the IP addresses of the domain name. 
+It returns a tuple (hostname, canonical name (tên chính tắc), and IP_addrlist)
+where the hostname is given by us (c2 bởi us), the canonical name is a (possibly
+(có thể) empty) list of canonical hostnames of the server for the same address 
+(cùng 1 tên máy chủ), and IP_addrlist is a list all the available IPs of the 
+same hostname. Often, one domain name is hosted (được tổ chức) on many IP 
+addresses to balance the load of the server. Unfortunately (Rất tiếc), this 
+method does not work for IPv6. I hope you are well acquainted (hiểu biết) with
+tuple, list, and dictionary. 
+>>> socket.gethostbyname_ex('thapar.edu')
+('thapar.edu', [], ['14.139.242.100', '220.227.15.55'])
+
+- socket.gethostname(): This returns the hostname of the system where the
+Python interpreter (trình thông dịch) is currently running:
+>>> socket.gethostname()
+'P421CT19A1'
+	+ Để thu thập IP address của máy hiện tại bằng socket module:
+	socket.gethostbyname(socket.gethostname())
+	>>> socket.gethostbyname(socket.gethostname())
+	'192.168.100.7'
+	>>> socket.gethostbyname_ex(socket.gethostname())
+	('P421CT19A1', [], ['192.168.100.7'])
+
+- socket.getfqdn([name]): This is used to find the fully qualified (điều kiện)
+name, if it's available. The fully qualified domain name consists of a host 
+and domain name; for example, beta might (có thể) be the hostname, and 
+example.com might be the domain name. The fully qualified domain name (FQDN)
+becomes beta.example.com.
+>>> socket.getfqdn('facebook.com')
+'edge-star-mini6-shv-01-hkg4.facebook.com'
+
+- socket.gethostbyaddr(ip_address): This is like a "reverse" lookup for
+the name. It returns a tuple (hostname, canonical name, and IP_addrlist)
+where hostname is the hostname that responds to the given ip_address,
+the canonical name is a (possibly empty) list of canonical names of the
+same address, and IP_addrlist is a list of IP addresses for the same
+network interface on the same host:
+
+- socket.getservbyname(servicename[, protocol_name]): This converts
+any protocol name to the corresponding (tương ứng) port number. The Protocol
+name is optional, either TCP or UDP. For example, the DNS service uses TCP as
+well as UDP connections. If the protocol name is not given, any protocol
+could match (khớp):
+>>> socket.getservbyname('http')
+80
+
+- socket.getservbyport(port[, protocol_name]): This converts an
+Internet port number to the corresponding service name. The protocol
+name is optional, either TCP or UDP:
+>>> socket.getservbyport(80)
+'http'
+
+- socket.connect_ex(address): This method returns an error indicator (chỉ thị).
+If successful. it returns 0; otherwise (nếu không), it returns the errno variable. 
+You can take advantage (tận dụng) of this function to scan the ports. Run the 
+connet_ex.py program:
+
+	+ socket.getaddrinfo(host, port[, family[, socktype[, proto[, flags]]]])
+		
+	Family        : AF_INET
+	Type          : SOCK_STREAM
+	Protocol      : IPPROTO_IP
+	Canonical name: 
+	Socket address: ('117.203.246.71', 80)
+	
+	>>> socket.getaddrinfo('www.thapar.edu', 'http')
+	[(2, 1, 0, '', ('220.227.15.47', 80)), (2, 1, 0, '', ('14.139.242.100',
+	80))]
+	
+	>>> dict(( getattr(socket,n),n) for n in dir(socket) if n.startswith('AF_'))
+	{0: 'AF_UNSPEC', 2: 'AF_INET', 6: 'AF_IPX', 11: 'AF_SNA', 12: 'AF_DECnet', 
+	16: 'AF_APPLETALK', 23: 'AF_INET6', 26: 'AF_IRDA'}
+	
+	>>> dict(( getattr(socket,n),n) for n in dir(socket) if n.startswith('SOCK_'))
+	{1: 'SOCK_STREAM', 2: 'SOCK_DGRAM', 3: 'SOCK_RAW', 4: 'SOCK_RDM', 
+	5: 'SOCK_SEQPACKET'}
+	
+	>>> dict(( getattr(socket,n),n) for n in dir(socket) if n.startswith('IPPROTO_'))
+	{0: 'IPPROTO_IP', 1: 'IPPROTO_ICMP', 17: 'IPPROTO_UDP', 6: 'IPPROTO_TCP', 
+	255: 'IPPROTO_RAW'}
