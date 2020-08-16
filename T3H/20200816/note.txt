@@ -1,0 +1,74 @@
+django-admin startproject search_paging
+cd search_paging
+python manage.py startapp app
+------------
+python manage.py runserver
+https://github.com/pytutorial/p2005Online/tree/master/20200816/search_paging
+
+From GiangVien to Everyone:  01:53 PM
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+127.0.0.1:8000/admin
+
+From GiangVien to Everyone:  02:31 PM
+{%if c.id == categoryId %} selected {% endif %}
+categoryId
+
+From GiangVien to Everyone:  02:43 PM
+{%if 1 == priceRange %} selected {% endif %}
+
+From GiangVien to Everyone:  02:57 PM
+PAGE_SIZE = 5
+    page = request.GET.get('page', 1)
+	
+From GiangVien to Everyone:  03:15 PM
+----------------
+href='?page=1&keyword={{keyword}}&categoryId={{categoryId}}&&priceRange={{priceRange}}'
+import math
+------------
+import math
+'start': start, 'total': total, 'num_page': num_page,
+        'page': page, 'prev_page': prev_page, 'next_page': next_page,
+-------------------
+page = int(request.GET.get('page') or 1)
+
+From Me to Everyone:  03:15 PM
+thầy thừa 2 dấu &&
+ở priceRange
+
+From GiangVien to Everyone:  03:16 PM
+forloop.counter|add:start
+
+From GiangVien to Everyone:  03:26 PM
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<div class="container pt-3">  
+</div>
+class="table table-bordered"
+
+From GiangVien to Everyone:  03:39 PM
+&nbsp;
+<ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+  
+From GiangVien to Everyone:  03:46 PM
+&laquo;
+&lsaquo;
+&rsaquo;
+&raquo;
+
+From GiangVien to Everyone:  03:57 PM
+if num_page <= 1
+if num_page > 1
+
+From GiangVien to Everyone:  04:15 PM
+from django.db.models import Q
+productList = productList.order_by('price')
+https://github.com/pytutorial/html_samples/tree/master/css_bootstrap
+https://github.com/pytutorial/themes
+sbadmin2
