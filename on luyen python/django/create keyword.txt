@@ -1,0 +1,14 @@
+# Tạo ô tìm kiếm bằng keyword
+
+------app/templates/index.html-----------
+
+<input value='{{keyword}}' name="keyword" placeholder="Nhập tên/mã sản phẩm">
+
+------app/views.py--------
+def index(request):
+    keyword = request.GET.get('keyword', '')
+    productList = Product.objects.filter(name__contains=keyword)
+    context = {
+        'keyword': keyword,
+        'productList' : productList     
+    }

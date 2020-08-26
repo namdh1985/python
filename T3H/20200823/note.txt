@@ -1,0 +1,92 @@
+From GiangVien to Everyone:  01:42 PM
+django-admin startproject user_login
+---------------------
+cd user_login
+----------------
+python manage.py startapp app
+
+From GiangVien to Everyone:  02:13 PM
+----------
+python manage.py runserver
+----------
+https://github.com/pytutorial/p2005Online/tree/master/20200823/user_login
+--------------
+python manage.py startapp accounts
+-----------
+django.contrib.auth.urls
+-----------
+http://127.0.0.1:8000/accounts/login/
+registration
+-------------
+accounts/templates/registration/
+    login.html
+-----------
+python manage.py migrate
+python manage.py createsuperuser
+http://127.0.0.1:8000/accounts/login/
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+------------
+http://127.0.0.1:8000/accounts/logout/
+user.is_authenticated
+
+From GiangVien to Everyone:  02:26 PM
+http://127.0.0.1:8000/staff
+from django.contrib.auth.decorators import login_required
+---
+registration/signup.html
+http://127.0.0.1:8000/accounts/signup
+
+From Hữu Bình to Everyone:  02:43 PM
+2 thẻ password với xác nhận password bắt buộc phải dùng name = "password1" vs "password2" không ạ?
+
+From GiangVien to Everyone:  02:50 PM
+http://127.0.0.1:8000/admin/login/?next=/admin/
+from django.contrib.admin.views.decorators import staff_member_required
+
+From GiangVien to Everyone:  03:03 PM
+python manage.py makemigrations
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+
+From GiangVien to Everyone:  03:17 PM
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+From GiangVien to Everyone:  03:22 PM
+-----------
+<style>
+  .login-form {
+    max-width: 400px;
+    margin: 100px auto 0 auto;
+    border: solid 1px #DDD;
+    padding: 20px
+  }
+</style>
+
+From GiangVien to Everyone:  03:36 PM
+----
+{{form.username.errors}}
+--------
+<div style="color:red">{{ form.non_field_errors }}</div>
+----
+value="{{form.username.value|default:''}}"
+
+From GiangVien to Everyone:  04:03 PM
+http://127.0.0.1:8000/admin/
+
+From GiangVien to Everyone:  04:15 PM
+------------
+fieldsets = (*UserAdmin.fieldsets, 
+                    ('Thông tin khác', {
+                        'fields': ['phone', 'address']
+                    })
+                )
+UserProfile
+
+From GiangVien to Everyone:  04:20 PM
+UserGroup
+Project cuối khóa
+https://github.com/pytutorial/sample_projects
+
